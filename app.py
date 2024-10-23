@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, scrolledtext
 import pickle
 from nltk.corpus import stopwords
 import nltk
@@ -56,29 +56,37 @@ def predict_sentiment():
 root = tk.Tk()
 root.title("Application d'analyse des sentiments")
 
-# Define the interface layout
-frame = tk.Frame(root)
-frame.pack(padx=10, pady=10)
+# Configure the window size and background
+root.geometry("500x400")
+root.configure(bg="#f0f0f0")
+
+# Define the interface layout using a grid
+frame = tk.Frame(root, bg="#f0f0f0")
+frame.pack(padx=20, pady=20)
+
+# Set custom font and colors
+font_label = ("Arial", 12, "bold")
+font_text = ("Arial", 10)
 
 # Label for input field
-input_label = tk.Label(frame, text="Saisissez du texte pour l’analyse des sentiments :")
-input_label.grid(row=0, column=0, sticky="w")
+input_label = tk.Label(frame, text="Entrez du texte pour l'analyse des sentiments:", bg="#f0f0f0", font=font_label)
+input_label.grid(row=0, column=0, sticky="w", pady=5)
 
-# Textbox for user input
-input_text = tk.Text(frame, height=5, width=50)
-input_text.grid(row=1, column=0)
+# Scrollable Textbox for user input
+input_text = scrolledtext.ScrolledText(frame, height=5, width=50, wrap=tk.WORD, font=font_text)
+input_text.grid(row=1, column=0, padx=5, pady=5)
 
-# Button to trigger sentiment prediction
-predict_button = tk.Button(frame, text="Prédire le sentiment", command=predict_sentiment)
+# Button to trigger sentiment prediction with a better size and styling
+predict_button = tk.Button(frame, text="Prédire le sentiment", command=predict_sentiment, bg="#4CAF50", fg="white", font=("Arial", 10, "bold"), width=20, height=2)
 predict_button.grid(row=2, column=0, pady=10)
 
 # Label for result
-result_label = tk.Label(frame, text="Résultats de la prédiction :")
-result_label.grid(row=3, column=0, sticky="w")
+result_label = tk.Label(frame, text="Résultats de prédiction:", bg="#f0f0f0", font=font_label)
+result_label.grid(row=3, column=0, sticky="w", pady=5)
 
-# Textbox to display the results
-result_text = tk.Text(frame, height=5, width=50)
-result_text.grid(row=4, column=0)
+# Scrollable Textbox to display the results
+result_text = scrolledtext.ScrolledText(frame, height=5, width=50, wrap=tk.WORD, font=font_text)
+result_text.grid(row=4, column=0, padx=5, pady=5)
 
 # Run the Tkinter event loop
 root.mainloop()
