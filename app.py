@@ -54,14 +54,14 @@ def predict_sentiment():
 
 # Create the main Tkinter window
 root = tk.Tk()
-root.title("Sentiment Analysis App")
+root.title("Application d'analyse des sentiments")
 
 # Define the interface layout
 frame = tk.Frame(root)
 frame.pack(padx=10, pady=10)
 
 # Label for input field
-input_label = tk.Label(frame, text="Enter text for sentiment analysis:")
+input_label = tk.Label(frame, text="Saisissez du texte pour l’analyse des sentiments :")
 input_label.grid(row=0, column=0, sticky="w")
 
 # Textbox for user input
@@ -69,11 +69,11 @@ input_text = tk.Text(frame, height=5, width=50)
 input_text.grid(row=1, column=0)
 
 # Button to trigger sentiment prediction
-predict_button = tk.Button(frame, text="Predict Sentiment", command=predict_sentiment)
+predict_button = tk.Button(frame, text="Prédire le sentiment", command=predict_sentiment)
 predict_button.grid(row=2, column=0, pady=10)
 
 # Label for result
-result_label = tk.Label(frame, text="Prediction results:")
+result_label = tk.Label(frame, text="Résultats de la prédiction :")
 result_label.grid(row=3, column=0, sticky="w")
 
 # Textbox to display the results
